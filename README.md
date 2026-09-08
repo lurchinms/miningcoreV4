@@ -203,12 +203,12 @@ Create a configuration file `config.json` as described [here](https://github.com
 
 ```console
 cd build
-Miningcore -c config.json
+Miningcore.dll -c config.json
 ```
 
 ## Supported Currencies
 
-Refer to [this file](https://github.com/soosho/miningcore/blob/master/src/Miningcore/coins.json) for a complete list.
+Refer to [this file](https://github.com/lurchinms/miningcore/blob/master/src/Miningcore/coins.json) for a complete list.
 
 ## Caveats
 
