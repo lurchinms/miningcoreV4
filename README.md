@@ -38,7 +38,7 @@ Code contributions are very welcome and should be submitted as standard [pull re
 
 ```console
 git clone https://github.com/lurchinms/miningcoreV4
-cd miningcore
+cd miningcoreV4
 ```
 
 Depending on your OS Version run either of these scripts:
