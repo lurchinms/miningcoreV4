@@ -37,7 +37,7 @@ Code contributions are very welcome and should be submitted as standard [pull re
 ## Building on Debian/Ubuntu
 
 ```console
-git clone https://github.com/soosho/miningcore
+git clone https://github.com/lurchinms/miningcoreV4
 cd miningcore
 ```
 
