@@ -7,7 +7,7 @@
 
 # Miningcore Community Edition (MCCE)
 
-Miningcore Community Edition (MCCE) is a modernized, actively maintained continuation of Miningcore. It features full support for **.NET 8** and **Ubuntu 24.04**, offering better performance and stability compared to the original [Oliverw Miningcore](https://github.com/oliverw/miningcore) repository (which has been outdated, discontinued, and archived since 2022).
+Miningcore Community Edition (MCCE) is a modernized, actively maintained continuation of Miningcore. It features full support for **.NET 9** and **Ubuntu 24.04**, offering better performance and stability compared to the original [Oliverw Miningcore](https://github.com/oliverw/miningcore) repository (which has been outdated, discontinued, and archived since 2022).
 
 ### Features
 
