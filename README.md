@@ -77,7 +77,7 @@ Download and install the [.NET 9 SDK](https://dotnet.microsoft.com/download/dotn
 
 ```dosbatch
 git clone https://github.com/lurchinms/miningcoreV4
-cd miningcore
+cd miningcoreV4
 build-windows.bat
 ```
 
@@ -90,8 +90,8 @@ build-windows.bat
 In case you don't want to install any dependencies then you can build the app using the official Microsoft .NET SDK Docker image.
 
 ```console
-git clone https://github.com/soosho/miningcore
-cd miningcore
+git clone https://github.com/lurchinms/miningcoreV4
+cd  miningcoreV4
 ```
 Then build using Docker:
 
