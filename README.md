@@ -24,15 +24,10 @@ Miningcore Community Edition (MCCE) is a modernized, actively maintained continu
 - Detailed per-pool logging to console & filesystem
 - Runs on Linux and Windows
 
-## Support
-
-Commercial support directly by the maintainer is available through [miningcore.pro](https://store.miningcore.pro).
-
-For general questions visit the [Discussions Area](https://github.com/soosho/miningcore/discussions).
 
 ## Contributions
 
-Code contributions are very welcome and should be submitted as standard [pull requests](https://docs.github.com/en/pull-requests) (PR) based on the [`dev` branch](https://github.com/soosho/miningcore/tree/dev).
+Code contributions are very welcome and should be submitted as standard [pull requests](https://docs.github.com/en/pull-requests) (PR) based on the [`dev` branch](https://github.com/lurchinms/miningcoreV4/tree/dev).
 
 ## Building on Debian/Ubuntu
 
