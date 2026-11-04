@@ -69,7 +69,11 @@ public class RpcClient
             if(response.Result is JToken token)
                 return new RpcResponse<TResponse>(token.ToObject<TResponse>(serializer), response.Error);
 
-            return new RpcResponse<TResponse>((TResponse) response.Result, response.Error);
+            if(response.Result == null)
+                return new RpcResponse<TResponse>(null, response.Error);
+
+            // Primitive results (e.g. integers exceeding Int64 range deserialized as BigInteger)
+            return new RpcResponse<TResponse>(JToken.FromObject(response.Result).ToObject<TResponse>(serializer), response.Error);
         }
 
         catch(TaskCanceledException)
@@ -234,6 +238,22 @@ public class RpcClient
             {
                 // deserialize response
                 var responseContent = await response.Content.ReadAsStringAsync(ct);
+
+                // normalize difficulty objects (e.g. proof-of-work/proof-of-stake) reported by some PoS coins
+                if(JToken.Parse(responseContent) is JArray batchArray)
+                {
+                    foreach(var item in batchArray)
+                    {
+                        var proofOfWorkToken = item.SelectToken("result.difficulty.proof-of-work");
+                        if(proofOfWorkToken != null)
+                        {
+                            double proofOfWork = (double) item["result"]["difficulty"]["proof-of-work"];
+                            item["result"]["difficulty"] = proofOfWork;
+                        }
+                    }
+
+                    responseContent = batchArray.ToString();
+                }
 
                 logger.Trace(() => $"Received RPC response: {responseContent}");
 

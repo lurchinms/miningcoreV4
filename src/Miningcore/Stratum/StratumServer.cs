@@ -92,6 +92,12 @@ public abstract class StratumServer
     protected IBanManager banManager;
     protected ILogger logger;
 
+    /// <summary>
+    /// Maximum size in bytes of a single inbound JSON-RPC request line.
+    /// Pools handling large payloads (e.g. proof submissions) may override this.
+    /// </summary>
+    protected virtual int MaxInboundRequestLength => StratumConnection.DefaultMaxInboundRequestLength;
+
     protected Task RunAsync(CancellationToken ct, params StratumEndpoint[] endpoints)
     {
         Contract.RequiresNonNull(endpoints);
@@ -167,7 +173,8 @@ public abstract class StratumServer
                 return;
 
             // init connection
-            var connection = new StratumConnection(logger, rmsm, clock, CorrelationIdGenerator.GetNextId(), clusterConfig.Logging.GPDRCompliant);
+            var connection = new StratumConnection(logger, rmsm, clock, CorrelationIdGenerator.GetNextId(), clusterConfig.Logging.GPDRCompliant,
+                MaxInboundRequestLength);
 
             logger.Info(() => $"[{connection.ConnectionId}] Accepting connection from {remoteEndpoint.Address.CensorOrReturn(clusterConfig.Logging.GPDRCompliant)}:{remoteEndpoint.Port} ...");
 

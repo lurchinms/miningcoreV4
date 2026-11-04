@@ -249,7 +249,7 @@ public partial class ErgoCoinTemplate
 public partial class EthereumCoinTemplate
 {
     #region Overrides of CoinTemplate
-    
+
     public EthereumCoinTemplate()
     {
         ethashLightValue = new Lazy<IEthashLight>(() =>
@@ -313,7 +313,7 @@ public partial class KaspaCoinTemplate
 public partial class ProgpowCoinTemplate
 {
     #region Overrides of CoinTemplate
-    
+
     public ProgpowCoinTemplate() : base()
     {
         progpowLightValue = new Lazy<IProgpowLight>(() =>
@@ -375,6 +375,18 @@ public partial class ZanoCoinTemplate
     public override string GetAlgorithmName()
     {
         return Hash.ToString();
+    }
+
+    #endregion
+}
+
+public partial class PearlCoinTemplate
+{
+    #region Overrides of CoinTemplate
+
+    public override string GetAlgorithmName()
+    {
+        return "pearlhash";
     }
 
     #endregion
