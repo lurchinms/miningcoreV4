@@ -31,12 +31,23 @@ namespace Miningcore.Stratum;
 
 public class StratumConnection
 {
-    public StratumConnection(ILogger logger, RecyclableMemoryStreamManager rmsm, IMasterClock clock, string connectionId, bool gpdrCompliantLogging)
+    public StratumConnection(ILogger logger, RecyclableMemoryStreamManager rmsm, IMasterClock clock, string connectionId, bool gpdrCompliantLogging,
+        int maxInboundRequestLength = DefaultMaxInboundRequestLength)
     {
         this.logger = logger;
         this.rmsm = rmsm;
 
-        receivePipe = new Pipe(PipeOptions.Default);
+        this.maxInboundRequestLength = maxInboundRequestLength > 0
+            ? maxInboundRequestLength
+            : DefaultMaxInboundRequestLength;
+
+        // The pause-writer threshold must exceed the maximum line length:
+        // the reader only consumes complete newline-terminated requests, so a
+        // single request larger than the threshold would otherwise deadlock
+        // the fill loop (default PipeOptions pause at 64 KB).
+        receivePipe = new Pipe(new PipeOptions(
+            pauseWriterThreshold: this.maxInboundRequestLength + 0x10000,
+            resumeWriterThreshold: this.maxInboundRequestLength / 2 + 1));
 
         sendQueue = new BufferBlock<object>(new DataflowBlockOptions
         {
@@ -53,7 +64,8 @@ public class StratumConnection
     private readonly RecyclableMemoryStreamManager rmsm;
     private readonly IMasterClock clock;
 
-    private const int MaxInboundRequestLength = 0x8000;
+    public const int DefaultMaxInboundRequestLength = 0x8000;
+    private readonly int maxInboundRequestLength;
     public static readonly Encoding Encoding = new UTF8Encoding(false);
 
     private Stream networkStream;
@@ -210,7 +222,7 @@ public class StratumConnection
     {
         return SendAsync(request);
     }
-    
+
     // Beam stratum API: https://github.com/BeamMW/beam/wiki/Beam-mining-protocol-API-(Stratum)
     public Task NotifyAsync(object request)
     {
@@ -240,7 +252,7 @@ public class StratumConnection
         {
             logger.Debug(() => $"[{ConnectionId}] [NET] Waiting for data ...");
 
-            var memory = receivePipe.Writer.GetMemory(MaxInboundRequestLength + 1);
+            var memory = receivePipe.Writer.GetMemory(maxInboundRequestLength + 1);
 
             // read from network directly into pipe memory
             var cb = await networkStream.ReadAsync(memory, ct);
@@ -273,8 +285,8 @@ public class StratumConnection
             var buffer = result.Buffer;
             SequencePosition? position;
 
-            if(buffer.Length > MaxInboundRequestLength)
-                throw new InvalidDataException($"Incoming data exceeds maximum of {MaxInboundRequestLength}");
+            if(buffer.Length > maxInboundRequestLength)
+                throw new InvalidDataException($"Incoming data exceeds maximum of {maxInboundRequestLength}");
 
             logger.Debug(() => $"[{ConnectionId}] [PIPE] Received data: {result.Buffer.AsString(Encoding)}");
 

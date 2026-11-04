@@ -13,6 +13,7 @@ using Miningcore.Blockchain.Ethereum;
 using Miningcore.Blockchain.Handshake;
 using Miningcore.Blockchain.Kaspa;
 using Miningcore.Blockchain.Nexa;
+using Miningcore.Blockchain.Pearl;
 using Miningcore.Blockchain.Progpow;
 using Miningcore.Blockchain.Satoshicash;
 using Miningcore.Blockchain.Warthog;
@@ -99,7 +100,7 @@ public class AutofacModule : Module
                 t.GetInterfaces().Any(i => i.IsAssignableFrom(typeof(IHashAlgorithm))))
             .Named<IHashAlgorithm>(t=> t.GetCustomAttributes<IdentifierAttribute>().First().Name)
             .PropertiesAutowired();
-        
+
         builder.RegisterAssemblyTypes(ThisAssembly)
             .Where(t => t.GetCustomAttributes<IdentifierAttribute>().Any() &&
                 t.GetInterfaces().Any(i => i.IsAssignableFrom(typeof(IEthashLight))))
@@ -178,17 +179,17 @@ public class AutofacModule : Module
         builder.RegisterType<PROPPaymentScheme>()
             .Keyed<IPayoutScheme>(PayoutScheme.PROP)
             .SingleInstance();
-        
+
         //////////////////////
         // Alephium
 
         builder.RegisterType<AlephiumJobManager>();
-        
+
         //////////////////////
         // Beam
 
         builder.RegisterType<BeamJobManager>();
-        
+
         //////////////////////
         // Bitcoin and family
 
@@ -198,7 +199,7 @@ public class AutofacModule : Module
         // Conceal
 
         builder.RegisterType<ConcealJobManager>();
-        
+
         //////////////////////
         // Cryptonote
 
@@ -223,7 +224,7 @@ public class AutofacModule : Module
         // Handshake
 
         builder.RegisterType<HandshakeJobManager>();
-        
+
         //////////////////////
         // Kaspa
 
@@ -233,7 +234,7 @@ public class AutofacModule : Module
         // Nexa
 
         builder.RegisterType<NexaJobManager>();
-        
+
         //////////////////////
         // Progpow
 
@@ -258,6 +259,11 @@ public class AutofacModule : Module
         // Zano
 
         builder.RegisterType<ZanoJobManager>();
+
+        //////////////////////
+        // Pearl
+
+        builder.RegisterType<PearlJobManager>();
 
         base.Load(builder);
     }
