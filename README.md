@@ -1,7 +1,7 @@
 [![.NET](https://github.com/Blockistry/miningcore/actions/workflows/dotnet.yml/badge.svg)](https://github.com/Blockistry/miningcore/actions/workflows/dotnet.yml)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](LICENSE)
 
-<img src="https://github.com/soosho/miningcore/raw/master/logo.png" width="150">
+<img src="https://github.com/lurchinms/miningcoreV4/blob/master/logo.png" width="150">
 
 # Miningcore Community Edition (MCCE)
 
