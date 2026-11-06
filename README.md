@@ -74,7 +74,7 @@ or
 Download and install the [.NET 9 SDK](https://dotnet.microsoft.com/download/dotnet/9.0)
 
 ```dosbatch
-git clone https://github.com/lurchinms/miningcore4
+git clone https://github.com/lurchinms/miningcoreV4
 cd miningcoreV4
 build-windows.bat
 ```
