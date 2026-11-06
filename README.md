@@ -88,8 +88,8 @@ build-windows.bat
 In case you don't want to install any dependencies then you can build the app using the official Microsoft .NET SDK Docker image.
 
 ```console
-git clone https://github.com/soosho/miningcore
-cd miningcore
+git clone https://github.com/lurchinms/miningcoreV4
+cd miningcoreV4
 ```
 Then build using Docker:
 
