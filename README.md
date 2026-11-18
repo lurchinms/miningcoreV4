@@ -71,7 +71,7 @@ or
 
 ## Building on Windows
 
-Download and install the [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/9.0)
+Download and install the [.NET 9 SDK](https://dotnet.microsoft.com/download/dotnet/9.0)
 
 ```dosbatch
 git clone https://github.com/lurchinms/miningcore
