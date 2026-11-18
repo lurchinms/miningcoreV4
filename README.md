@@ -1,9 +1,7 @@
 [![.NET](https://github.com/Blockistry/miningcore/actions/workflows/dotnet.yml/badge.svg)](https://github.com/Blockistry/miningcore/actions/workflows/dotnet.yml)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](LICENSE)
 
-> 🚀 **[Miningcore Premium UI](https://github.com/soosho/miningcore.ui)** — A modern, feature-rich web dashboard for Miningcore. Track hashrates, manage miners, view blocks, payments, and pool performance in real-time. [Get it here →](https://github.com/soosho/miningcore.ui)
-
-<img src="https://github.com/soosho/miningcore/raw/master/logo.png" width="150">
+<img src="https://github.com/lurchinms/miningcoreV4/blob/main/logo.png" width="150">
 
 # Miningcore Community Edition (MCCE)
 
@@ -28,16 +26,16 @@ Miningcore Community Edition (MCCE) is a modernized, actively maintained continu
 
 Commercial support directly by the maintainer is available through [miningcore.pro](https://store.miningcore.pro).
 
-For general questions visit the [Discussions Area](https://github.com/soosho/miningcore/discussions).
+For general questions visit the [Discussions Area](https://github.com/lurchinms/miningcore/discussions).
 
 ## Contributions
 
-Code contributions are very welcome and should be submitted as standard [pull requests](https://docs.github.com/en/pull-requests) (PR) based on the [`dev` branch](https://github.com/soosho/miningcore/tree/dev).
+Code contributions are very welcome and should be submitted as standard [pull requests](https://docs.github.com/en/pull-requests) (PR) based on the [`dev` branch](https://github.com/lurchinms/miningcore/tree/dev).
 
 ## Building on Debian/Ubuntu
 
 ```console
-git clone https://github.com/soosho/miningcore
+git clone https://github.com/lurchinms/miningcore
 cd miningcore
 ```
 
@@ -76,7 +74,7 @@ or
 Download and install the [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/9.0)
 
 ```dosbatch
-git clone https://github.com/soosho/miningcore
+git clone https://github.com/lurchinms/miningcore
 cd miningcore
 build-windows.bat
 ```
@@ -90,7 +88,7 @@ build-windows.bat
 In case you don't want to install any dependencies then you can build the app using the official Microsoft .NET SDK Docker image.
 
 ```console
-git clone https://github.com/soosho/miningcore
+git clone https://github.com/lurchinms/miningcore
 cd miningcore
 ```
 Then build using Docker:
@@ -146,7 +144,7 @@ docker system prune -af
 
 ### Production OS
 
-Windows is **not** a supported production environment. Only Linux is. Please do not file issues related to running a pool on Windows. Windows topics should be posted under [discussions](https://github.com/soosho/miningcore/discussions).
+Windows is **not** a supported production environment. Only Linux is. Please do not file issues related to running a pool on Windows. Windows topics should be posted under [discussions](https://github.com/lurchinms/miningcore/discussions).
 
 Running and developing Miningcore on Windows is of course supported.
 
@@ -208,7 +206,7 @@ Miningcore -c config.json
 
 ## Supported Currencies
 
-Refer to [this file](https://github.com/soosho/miningcore/blob/master/src/Miningcore/coins.json) for a complete list.
+Refer to [this file](https://github.com/lurchinms/miningcore/blob/master/src/Miningcore/coins.json) for a complete list.
 
 ## Caveats
 
@@ -240,30 +238,3 @@ A public production pool requires a web-frontend for your users to check their h
 
 Once again, do not run a production pool on Windows! This is not a supported configuration.
 
-## Donations
-
-To support this project you can become a [sponsor]( https://github.com/sponsors/soosho ) or send a donation to the following accounts:
-
-### Miningcore Community Edition (MCCE) (soosho)
-* BTC:   `1AqqFf13RcfGbwa4GQGQV27T6HL1r35WVk`
-* BCH:   `1AqqFf13RcfGbwa4GQGQV27T6HL1r35WVk`
-* ETH:   `0xbd9bf193bf6ba5bf0dc25418e96082580fb9498f`
-* BNB:   `0xbd9bf193bf6ba5bf0dc25418e96082580fb9498f`
-* LTC:   `La2a5YZH3dDJh1L8tTRKk3zz2zUwtYfeHj`
-* DOGE:  `DCMuGWx62HoW6mKVsvfkvuqqqYpsWevfod`
-
-### Original Developer (oliverw)
-* ETH:   `0xbC059e88A4dD11c2E882Fc6B83F8Ec12E4CCCFad`
-* BTC:   `16xvkGfG9nrJSKKo5nGWphP8w4hr2ZzVuw`
-* LTC:   `LLs76baYT7iMqQhizxtBC96Cy48iX3Eh1p`
-* DOGE:  `DFuvDSFh4N3SiXGDnye2Vbc8kqvMHbyQE1`
-* KAS:   `kaspa:qpmf0wyu7c5z4l82ax9cfc5ughwk2f9lgu8uckkqrrpjqkxuk7yrga5nntvgn`
-* CCX:   `ccx7S4B3gBeH1SGWCfqZp3NM7Vavg7H3S8ovJn8fU4bwC4vU7ChWfHtbNzifhrpbJ74bMDxj4KZFTcznTfsucCEg1Kgv7zbNgs`
-* FIRO:  `a5AsoTSkfPHQ3SUmR6binG1XW7oQQoFNU1`
-* ERGO:  `9gYyuZzaSw3TiCtUkSRuS3XVDUv41EFs3dtNCFGqiEwHqpb7gkF`
-* WART:  `7795fc0fe93e7e4e232a212f00bdc8885c580a5666d39a0d`
-* XMR:   `483zaHtMRfM7rw1dXgebhWaRR8QLgAF6w4BomAV319FVVHfdbYTLVuBRc4pQgRAnRpfy6CXvvwngK4Lo3mRKE29RRx3Jb5c`
-* XEL:   `xel:ajnsfv065qusndt0hfsngecrnf5690drmqmc0uq0etlx8zjlcyzqq2slgvt`
-* CTXC:  `0xbb60200d5151a4a0f9a75014e04cf61a0a9f0daf`
-* ZANO:  `ZxDKT1aqiEXPA5cDADtYEfMR1oXsRd68bby4nzUvVmnjHzzrfvjwhNdQ9yiWNeGutzg9LZdwsbP2FGB1gNpZXiYY1fCfpw33c`
-* SCASH: `scash1qe6dhv8kncz08jtqukyps4l2n83z2umewanlmas`
